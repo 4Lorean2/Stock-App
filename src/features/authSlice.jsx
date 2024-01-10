@@ -7,6 +7,7 @@ const authSlice = createSlice({
   reducers: {},
 })
 // deneme
+//deneme-2
 
 export const {} = authSlice.actions
 export default authSlice.reducer
