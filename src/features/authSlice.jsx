@@ -9,18 +9,6 @@ const initialState = {
 
 const authSlice = createSlice({
   name: "auth",
-<<<<<<< HEAD
-
-  initialState: {},
-  reducers: {},
-});
-// deneme
-//deneme-2
-//deneme-3
-
-export const {} = authSlice.actions;
-export default authSlice.reducer;
-=======
   initialState,
   reducers: {
     fetchStart: (state) => {
@@ -53,4 +41,3 @@ export const {
 } = authSlice.actions
 
 export default authSlice.reducer
->>>>>>> componentsRegisterform
