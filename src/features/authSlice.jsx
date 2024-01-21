@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   user: "",
@@ -19,7 +19,11 @@ const authSlice = createSlice({
       state.user = payload.user.username
       state.token = payload.token
     },
-  
+    registerSuccess: (state, { payload }) => {
+      state.loading = false
+      state.user = payload.data.username
+      state.token = payload.token
+    },
     logoutSuccess: (state) => {
       state.user = ""
       state.loading = false
