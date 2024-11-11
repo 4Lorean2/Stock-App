@@ -1,7 +1,7 @@
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 import PaymentsIcon from "@mui/icons-material/Payments"
-import { amber, deepPurple, pink } from "@mui/material/colors"
+import { amber, deepPurple, pink, green, red } from "@mui/material/colors"
 import { Avatar, Box, Paper, Stack, Typography } from "@mui/material"
 import { useSelector } from "react-redux"
 
@@ -15,7 +15,7 @@ const KPI = () => {
     {
       id: 1,
       title: "sales",
-      amount: `$${totalSales}`,
+      amount: `€${totalSales}`,
       icon: <MonetizationOnIcon sx={{ fontSize: "2rem" }} />,
       bgColor: deepPurple[100],
       color: deepPurple[700],
@@ -23,15 +23,15 @@ const KPI = () => {
     {
       id: 2,
       title: "profit",
-      amount: `$${totalSales - totalPurchases}`,
+      amount: `€${totalSales - totalPurchases}`,
       icon: <ShoppingCartIcon sx={{ fontSize: "2rem" }} />,
-      bgColor: pink[100],
-      color: pink[700],
+      bgColor:pink[100] ,
+      color:`${totalSales - totalPurchases}` < 0 ? red[400] : green[500] ,
     },
     {
       id: 3,
       title: "purchases",
-      amount: `$${totalPurchases}`,
+      amount: `€${totalPurchases}`,
       icon: <PaymentsIcon sx={{ fontSize: "2rem" }} />,
       bgColor: amber[100],
       color: amber[700],
@@ -73,7 +73,7 @@ const KPI = () => {
 
           <Box>
             <Typography variant="button">{item.title}</Typography>
-            <Typography variant="h5">{item.amount}</Typography>
+            <Typography sx={{ color: item.color }} variant="h5">{item.amount}</Typography>
           </Box>
         </Paper>
       ))}
