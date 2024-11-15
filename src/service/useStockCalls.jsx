@@ -42,7 +42,7 @@ const useStockCalls = () => {
       dispatch(getStockSuccess({ apiData, url }))
     } catch (error) {
       dispatch(fetchFail())
-      toastErrorNotify(`${url} bilgileri çekilemedi.`)
+      toastErrorNotify(`${url} data could not received.`)
     }
   }
 
@@ -72,11 +72,11 @@ const useStockCalls = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.delete(`/${url}/${id}/`)
-      toastSuccessNotify(`${url} bilgisi silinmiştir.`)
+      toastSuccessNotify(`${url} is deleted.`)
       getStocks(url)
     } catch (error) {
       dispatch(fetchFail())
-      toastErrorNotify(`${url} silinemedi`)
+      toastErrorNotify(`${url} could not delete!`)
     }
   }
 
@@ -84,11 +84,11 @@ const useStockCalls = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.post(`/${url}/`, info)
-      toastSuccessNotify(`${url} kayıdı eklenmiştir.`)
+      toastSuccessNotify(`${url} is added.`)
       getStocks(url)
     } catch (error) {
       dispatch(fetchFail())
-      toastErrorNotify(`${url} kaydi eklenemiştir.`)
+      toastErrorNotify(`${url} is not added.`)
     }
   }
 
@@ -96,11 +96,11 @@ const useStockCalls = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.put(`/${url}/${info._id}`, info)
-      toastSuccessNotify(`${url} kayıdı güncellenmiştir..`)
+      toastSuccessNotify(`${url} is updated.`)
       getStocks(url)
     } catch (error) {
       dispatch(fetchFail())
-      toastErrorNotify(`${url} kaydi güncelenememiştir.`)
+      toastErrorNotify(`${url} is not updated.`)
     }
   }
 
