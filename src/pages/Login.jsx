@@ -119,7 +119,7 @@ const Login = () => {
 
         <Grid item xs={10} sm={7} md={6}>
           <Container >
-            <img sx={{ width: '150%', maxWidth: '600px', height: 'auto' }} src={image} alt="img" />
+            <img src={image} alt="img" />
           </Container>
         </Grid>
       </Grid>

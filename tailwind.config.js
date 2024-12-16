@@ -24,7 +24,7 @@ module.exports = {
           background: {
             muted: colors.gray[50],
             subtle: colors.gray[100],
-            DEFAULT: colors.white,
+            DEFAULT: colors.blue[100],
             emphasis: colors.gray[700],
           },
           border: {
