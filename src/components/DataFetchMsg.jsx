@@ -3,7 +3,7 @@ import { Alert, Skeleton, Stack } from "@mui/material"
 export const ErrorMsg = () => {
   return (
     <Alert severity="error" sx={{ my: 3 }}>
-      Veriler çekilemedi.
+      No data received.
     </Alert>
   )
 }
@@ -11,7 +11,7 @@ export const ErrorMsg = () => {
 export const NoDataMsg = () => {
   return (
     <Alert severity="warning" sx={{ my: 3 }}>
-      Gösterilecek bir veri bulunamadı.
+      No data to view.
     </Alert>
   )
 }
