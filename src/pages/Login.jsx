@@ -17,18 +17,18 @@ const Login = () => {
 
   const loginSchema = object({
     email: string()
-      .email("Lütfen geçerli bir email giriniz")
-      .required("Email girişi zorunludur"),
+      .email("Voer een geldig e-mailadres in.")
+      .required("E-mail is verplicht."),
     password: string()
-      .required("Şifre zorunludur.")
-      .min(8, "Şifre en az 8 karakter içermelidir")
-      .max(16, "Şifre en falza 16 karakter içermelidir")
-      .matches(/\d+/, "Şifre en az bir rakam içermelidir")
-      .matches(/[a-z]/, "Şifre en az bir küçük harf içermelidir")
-      .matches(/[A-Z]/, "Şifre en az bir büyük harf içermelidir")
+      .required("Wachtwoord is verplicht.")
+      .min(8, "Het wachtwoord moet minstens 8 tekens bevatten.")
+      .max(16, "Het wachtwoord moet minstens 16 tekens bevatten.")
+      .matches(/\d+/, "Het wachtwoord moet ten minste één cijfer bevatten.")
+      .matches(/[a-z]/, "Het wachtwoord moet ten minste één kleine letter bevatten.")
+      .matches(/[A-Z]/, "Het wachtwoord moet ten minste één hoofdletter bevatten.")
       .matches(
         /[@$!%*?&]+/,
-        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
+        "Het wachtwoord moet ten minste één speciaal teken bevatten (@$!%*?&)"
       ),
   })
   return (
@@ -72,13 +72,9 @@ const Login = () => {
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-              //TODO login(post) istegi
               login(values)
               actions.resetForm()
-              actions.setSubmitting(false) //? isSubmitting
-              //? veriler global state'e aktırlabilir
-              //? navigasyon yapılabilir
-              //? tost yapılabilr
+              actions.setSubmitting(false)
             }}
           >
             {({ handleChange, values, touched, errors, handleBlur }) => (
@@ -122,8 +118,8 @@ const Login = () => {
         </Grid>
 
         <Grid item xs={10} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="img" />
+          <Container >
+            <img sx={{ width: '150%', maxWidth: '600px', height: 'auto' }} src={image} alt="img" />
           </Container>
         </Grid>
       </Grid>
